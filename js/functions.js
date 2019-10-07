@@ -21,9 +21,9 @@ function renderAccount ( data ) {
             HTML += `<div class="table-row">
                         <div class="cell">${data[i].month}</div>
                         <div class="cell">Sausis</div>
-                        <div class="cell">${data[i].income} Eur</div>
-                        <div class="cell">${data[i].expense} Eur</div>
-                        <div class="cell">${data[i].income + data[i].expense} Eur</div>
+                        <div class="cell">${data[i].income} </div>
+                        <div class="cell">${data[i].expense} </div>
+                        <div class="cell">${data[i].income + data[i].expense} </div>
                     </div>`;
     }
 
@@ -49,10 +49,41 @@ function insertMonths( data ) {
     
 }
 
-/*function sumOfIncome( data ) {
+function sumOfIncome( data ) {
+      let rows = document.querySelectorAll('.table-row .cell:nth-child(3)');
+      console.log(rows);
+      let sum = 0;
 
-    for ( i= 1; i<12; i++)
-        sumValue =  );
-        console.log(sumValue);
-        
-}*/
+      for (let i = 0; i < rows.length-1; i++) {
+        sum += Number(rows[i].textContent);
+
+        document.getElementById("allYearIncome").textContent = sum;        
+       }
+           
+}
+
+function sumOfExpense( data ) {
+    let rows = document.querySelectorAll('.table-row .cell:nth-child(4)');
+    console.log(rows);
+    let sum = 0;
+
+    for (let i = 0; i < rows.length-1; i++) {
+      sum += Number(rows[i].textContent);
+
+      document.getElementById("allYearExpense").textContent = sum;        
+     }
+         
+}
+
+function sumOfBalance( data ) {
+    let rows = document.querySelectorAll('.table-row .cell:nth-child(5)');
+    console.log(rows);
+    let sum = 0;
+
+    for (let i = 0; i < rows.length-1; i++) {
+      sum += Number(rows[i].textContent);
+
+      document.getElementById("allYearBalance").textContent = sum;        
+     }
+         
+}
