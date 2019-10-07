@@ -1,14 +1,22 @@
+  account.sort(function (a, b) {
+    return a.month - b.month;
+  });
+  
 function renderAccount ( data ) {
-    console.log(data);    
+        
     let HTML = '';
 
     for ( let i=0; i<data.length; i++) {
-        console.log(data[i]);
+        
 
-        /*if (!data[i].income) {
-            console.log('klaida');
-            return '0';
-        }*/
+        if (!data[i].income) {
+            data[i].income = 0;
+        }
+
+        if (!data[i].expense) {
+            data[i].expense = 0;
+        }
+
         
             HTML += `<div class="table-row">
                         <div class="cell">${data[i].month}</div>
@@ -23,10 +31,28 @@ function renderAccount ( data ) {
     return document.getElementById('information').innerHTML = HTML;
 }
 
+function insertMonths( data ) {
 
-/*function balansuiSuskaiciuoti (data) {
-const balansas = data[i].income - data[i].expense;
-return balansas;
+    const oldMonths = document.querySelectorAll('.table-row .cell:nth-child(2)');
+    console.log(oldMonths);
+
+    const newMonths = months; 
+    console.log(newMonths);
+    
+    for ( let i=0; i<data.length; i++ ) {
+
+        oldMonths.innerHTML = newMonths;
+        console.log(newMonths);
+        return 
+        //ne velnio neveikia :( 
+    }
+    
+}
+
+/*function sumOfIncome( data ) {
+
+    for ( i= 1; i<12; i++)
+        sumValue =  );
+        console.log(sumValue);
+        
 }*/
-    
-    
